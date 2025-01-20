@@ -35,11 +35,15 @@ const TechBlogs = async () => {
             </p>
           </Link>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 md:gap-0 md:justify-between">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-8">
           {result.map((blog: Blog) => (
-            <div key={blog.title} className="flex flex-col gap-4 md:w-[400px]">
-              <Card2 blog={blog} />
-            </div>
+            <Card2
+              blog={blog}
+              key={blog.title}
+              imgWidth={400}
+              imgHeight={400}
+              customImgContainerClass="xl:h-[18em]"
+            />
           ))}
         </div>
       </div>

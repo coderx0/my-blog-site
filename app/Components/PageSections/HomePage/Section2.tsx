@@ -26,7 +26,7 @@ const GameBlogs = async () => {
   });
 
   return (
-    <div className="flex flex-col-reverse justify-between lg:flex-row mt-16 lg:mt-0">
+    <div className=" mt-16 lg:mt-40 flex flex-col-reverse justify-between lg:flex-row">
       <div className="w-full lg:w-[75%] flex flex-col gap-12 lg:gap-24">
         <div className="">
           <div className="flex justify-between items-center mb-6">
@@ -38,13 +38,9 @@ const GameBlogs = async () => {
               </p>
             </Link>
           </div>
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-8">
             {gameBlogs.map((blog: Blog) => (
-              <div
-                key={blog.title}
-                className="flex flex-col gap-4 md:w-[400px]">
-                <Card2 blog={blog} />
-              </div>
+              <Card2 blog={blog} key={blog.title} />
             ))}
           </div>
         </div>
@@ -62,11 +58,7 @@ const GameBlogs = async () => {
           </div>
           <div className="flex flex-col md:flex-row gap-8">
             {developmentBlogs.map((blog: Blog) => (
-              <div
-                key={blog.title}
-                className="flex flex-col gap-4 md:w-[400px]">
-                <Card2 blog={blog} />
-              </div>
+              <Card2 blog={blog} key={blog.title} />
             ))}
           </div>
         </div>

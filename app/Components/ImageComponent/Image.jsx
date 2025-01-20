@@ -1,7 +1,7 @@
 import React from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../utils/sanity/client";
-import Image from "next/image";
+// import Image from "next/image";
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -23,9 +23,9 @@ function urlFor(source) {
 
 const ImageComponent = ({ imgSrc, height, width, animate = true }) => {
   return (
-    <Image
+    <img
       src={urlFor(imgSrc).width(width).height(height).url()}
-      alt="Thumbnail"
+      alt=""
       className={`w-full h-full object-cover ${
         animate ? "hover:brightness-75 transition duration-200 ease-in-out" : ""
       }`}
