@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HeaderFont } from "@/fonts";
 import "./globals.css";
 import Link from "next/link";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   title: "Your Go-To Hub for Tech, Games, and Personal Growth | Debnews",
   description:
@@ -130,6 +130,7 @@ export default function RootLayout({
             </ul>
           </div>
         </footer>
+        <SpeedInsights />
       </body>
     </html>
   );
