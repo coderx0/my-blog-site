@@ -22,6 +22,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/blog/[slug]/page.jsx",
+    "app/category/[slug]/page.jsx",
+    "app/Components/ImageComponent/Image.jsx",
+    "app/Components/PageSections/MoreLikeThis/index.jsx",
+    "app/Components/TextComponents/index.jsx"
+  ],
   "exclude": ["node_modules"]
 }
