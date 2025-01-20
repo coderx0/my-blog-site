@@ -10,7 +10,11 @@ const Section1 = ({ result, imp }: { result: Blog[]; imp: Blog }) => {
       <div className="lg:w-[55vw] xl:w-[60vw]">
         <div className="w-full h-[14em] md:h-[20em] xl:h-[30em]">
           <img
-            src={getImgUrl(imp.thumbnail).width(600).height(400).url()}
+            src={getImgUrl(imp.thumbnail)
+              .width(600)
+              .height(400)
+              .auto("format")
+              .url()}
             alt=""
             className="w-full h-full object-cover"
           />
@@ -35,7 +39,11 @@ const Section1 = ({ result, imp }: { result: Blog[]; imp: Blog }) => {
             >
               <div className="lg:flex-1 w-full lg:w-[50em] h-[14em] sm:h-[16em] md:h-[28em] lg:h-[10em] xl:h-[12em]">
                 <img
-                  src={getImgUrl(blog.thumbnail).width(400).height(300).url()}
+                  src={getImgUrl(blog.thumbnail)
+                    .width(400)
+                    .height(300)
+                    .auto("format")
+                    .url()}
                   alt=""
                   className="w-full h-full object-cover"
                 />

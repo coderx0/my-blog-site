@@ -26,6 +26,7 @@ const Card2 = ({
               src={getImgUrl(blog.thumbnail)
                 .width(imgWidth || 400)
                 .height(imgHeight || 300)
+                .auto("format")
                 .url()}
               alt=""
               className="w-full h-full object-cover"

@@ -18,7 +18,11 @@ const Section3 = ({ result, imp }: { result: Blog[]; imp: Blog }) => {
               >
                 <div className="w-full lg:w-[20em] h-[14em] sm:h-[16em] md:h-[28em] lg:h-[14em] xl:h-[12em]">
                   <img
-                    src={getImgUrl(blog.thumbnail).width(400).height(300).url()}
+                    src={getImgUrl(blog.thumbnail)
+                      .width(400)
+                      .height(300)
+                      .auto("format")
+                      .url()}
                     alt=""
                     className="w-full h-full object-cover"
                   />

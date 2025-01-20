@@ -24,7 +24,7 @@ function urlFor(source) {
 const ImageComponent = ({ imgSrc, height, width, animate = true }) => {
   return (
     <img
-      src={urlFor(imgSrc).width(width).height(height).url()}
+      src={urlFor(imgSrc).width(width).height(height).auto("format").url()}
       alt=""
       className={`w-full h-full object-cover ${
         animate ? "hover:brightness-75 transition duration-200 ease-in-out" : ""
