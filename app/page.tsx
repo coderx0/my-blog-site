@@ -20,6 +20,7 @@ export default async function Home() {
   const [imp, ...result] = await client.fetch(CONTENT_QUERY);
   return (
     <>
+      <div className="mt-12"></div>
       <Section1 result={result} imp={imp} />
       <GameBlogs />
       <TechBlogs />

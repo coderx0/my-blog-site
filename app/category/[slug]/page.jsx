@@ -39,7 +39,7 @@ const BlogDetails = async ({ params }) => {
               <div className="flex flex-col-reverse md:flex-col gap-4">
                 <Link
                   href={`/blog/${blog.slug.current}`}
-                  className="flex flex-col gap-2 md:gap-4 hover:text-base-content/75 transition duration-200"
+                  className="flex flex-col gap-2 md:gap-4"
                 >
                   <h2 className="font-bold md:text-sm lg:text-xl">
                     {blog.title}
