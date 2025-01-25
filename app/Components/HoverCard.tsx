@@ -16,6 +16,7 @@ interface HoverCardProps {
   descClass: string;
   showDesc?: boolean;
   showDate?: boolean;
+  showTagandDate?: boolean;
 }
 const HoverCard = ({
   cardDetails,
@@ -27,6 +28,7 @@ const HoverCard = ({
   descClass,
   showDesc = true,
   showDate = false,
+  showTagandDate = false,
 }: HoverCardProps) => {
   return (
     <div className="group overflow-hidden">
@@ -60,6 +62,14 @@ const HoverCard = ({
             <p className={`${descClass} ${BodyFont.className}`}>
               {cardDetails.description}
             </p>
+          )}
+          {showTagandDate && (
+            <div className="flex text-[12px] justify-between md:justify-start md:gap-8">
+              <p className="bg-neutral-content rounded-md text-neutral px-2 font-semibold">
+                {cardDetails.categories.title}
+              </p>
+              <p>{new Date(cardDetails._createdAt).toDateString()}</p>
+            </div>
           )}
         </div>
       </div>

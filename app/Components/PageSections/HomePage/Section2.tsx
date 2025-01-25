@@ -30,10 +30,10 @@ const GameBlogs = async () => {
       <div className="w-full lg:w-[75%] flex flex-col gap-12 lg:gap-24">
         <div className="">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold">Games</h2>
+            <h2 className="text-md md:text-3xl font-bold">Games</h2>
             <Link href={"/category/Games"}>
               <p className="flex gap-2">
-                <span>View More</span>
+                <span className="text-sm">View More</span>
                 <RightArrow />
               </p>
             </Link>
@@ -63,17 +63,17 @@ const GameBlogs = async () => {
         </div>
         <div className="">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold">
+            <h2 className="text-ms md:text-3xl font-bold">
               Personal Development
             </h2>
             <Link href={"/category/Personal Development"}>
               <p className="flex gap-2">
-                <span>View More</span>
+                <span className="text-sm">View More</span>
                 <RightArrow />
               </p>
             </Link>
           </div>
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-8">
             {developmentBlogs.map((blog: Blog) => (
               <Link
                 href={`/blog/${blog.slug.current}`}
@@ -83,7 +83,7 @@ const GameBlogs = async () => {
                 <HoverCard
                   cardDetails={blog}
                   containerClass=""
-                  imgContainerClass="`w-full h-[14em] sm:h-[16em] md:h-[28em] lg:h-[10em] xl:h-[12em]"
+                  imgContainerClass="w-full h-[14em] sm:h-[16em] md:h-[28em] lg:h-[10em] xl:h-[12em]"
                   textContainerClass="flex flex-col gap-2 h-full mt-4"
                   imgDimenion={{ width: 400, height: 300 }}
                   showDesc={false}

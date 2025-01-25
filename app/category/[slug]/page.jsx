@@ -1,8 +1,9 @@
-import ImageComponent from "@/app/Components/ImageComponent/Image";
+// import ImageComponent from "@/app/Components/ImageComponent/Image";
 import { client } from "../../../utils/sanity/client";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogsByCategory } from "../../../Queries/queries";
+import HoverCard from "@/app/Components/HoverCard";
 const validCategories = ["Tech", "Games", "Personal Development"];
 
 const BlogDetails = async ({ params }) => {
@@ -22,43 +23,22 @@ const BlogDetails = async ({ params }) => {
         </div>
         <div className="flex flex-col gap-8">
           {result.map((blog) => (
-            <div
+            <Link
+              href={`/blog/${blog.slug.current}`}
               key={blog.title}
-              className="flex flex-col md:flex-row gap-4 lg:gap-12"
+              className=""
             >
-              <Link
-                href={`/blog/${blog.slug.current}`}
-                className="w-full md:max-w-[35%]"
-              >
-                <ImageComponent
-                  imgSrc={blog.thumbnail}
-                  height={240}
-                  width={400}
-                />
-              </Link>
-              <div className="flex flex-col-reverse md:flex-col gap-4">
-                <Link
-                  href={`/blog/${blog.slug.current}`}
-                  className="flex flex-col gap-2 md:gap-4"
-                >
-                  <h2 className="font-bold md:text-sm lg:text-xl">
-                    {blog.title}
-                  </h2>
-                  <p className="text-[12px] lg:text-sm">{blog.description}</p>
-                </Link>
-                <div className="flex text-[12px] justify-between md:justify-start md:gap-8">
-                  {blog.tags?.map((tag) => (
-                    <p
-                      key={tag}
-                      className="bg-neutral-content rounded-md text-neutral px-2 font-semibold"
-                    >
-                      {tag}
-                    </p>
-                  ))}
-                  <p>{new Date(blog._createdAt).toDateString()}</p>
-                </div>
-              </div>
-            </div>
+              <HoverCard
+                cardDetails={blog}
+                containerClass="w-full flex flex-col lg:flex-row gap-4 lg:gap-12"
+                imgContainerClass="w-full lg:w-[22em] h-[14em] sm:h-[16em] md:h-[26em] lg:h-[14em] xl:h-[14em]"
+                imgDimenion={{ width: 400, height: 300 }}
+                textContainerClass=" flex-1 flex flex-col md:flex-col gap-4"
+                headerClass="font-bold md:text-sm lg:text-xl"
+                descClass="text-[12px] lg:text-sm line-clamp-3"
+                showTagandDate={true}
+              />
+            </Link>
           ))}
         </div>
       </div>

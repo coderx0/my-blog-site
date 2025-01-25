@@ -1,12 +1,14 @@
 import ImageComponent from "../../ImageComponent/Image";
 import { client } from "@/utils/sanity/client";
 import Link from "next/link";
+import HoverCard from "../../HoverCard";
 
 const QUERY = `*[_type == "post" && categories._ref == $categoryId && slug.current != $slug] | order(_createdAt desc)[0...3]{
     title,
     slug,
     thumbnail,
-    description
+    description,
+    _createdAt
   }`;
 
 // type Props = {
@@ -22,8 +24,27 @@ const MoreLikeThisSection = async (props) => {
   return (
     <div className="mt-6">
       <div className="flex flex-col md:flex-row gap-8">
-        {results.map((result) => (
-          <div key={result.slug.current} className="flex-1">
+        {results.map((blog) => (
+          <Link
+            href={`/blog/${blog.slug.current}`}
+            key={blog.title}
+            className="lg:w-[40em]"
+          >
+            <HoverCard
+              cardDetails={blog}
+              containerClass=""
+              imgContainerClass="`w-full h-[14em] sm:h-[16em] md:h-[26em] lg:h-[10em] xl:h-[18em]"
+              textContainerClass="flex flex-col gap-2 h-full mt-4"
+              imgDimenion={{ width: 400, height: 400 }}
+              showDesc={false}
+              showDate={true}
+              headerClass="font-bold md:text-[18px] lg:text-[14px] xl:text-[18px] line-clamp-2"
+              descClass="text-[14px] xl:text-[16px] mt-2 text-base-content/80 line-clamp-3"
+            />
+          </Link>
+        ))}
+      </div>
+      {/* <div key={result.slug.current} className="flex-1">
             <Link href={`/blog/${result.slug.current}`}>
               <div className="">
                 <ImageComponent
@@ -38,9 +59,7 @@ const MoreLikeThisSection = async (props) => {
                 <p>{result.title}</p>
               </div>
             </Link>
-          </div>
-        ))}
-      </div>
+          </div> */}
     </div>
   );
 };

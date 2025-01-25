@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Blog } from "@/types";
-import { getImgUrl } from "@/utils/sanity/getImgUrl";
+import HoverCard from "../../HoverCard";
 
 const Section3 = ({ result, imp }: { result: Blog[]; imp: Blog }) => {
   return (
@@ -11,38 +11,22 @@ const Section3 = ({ result, imp }: { result: Blog[]; imp: Blog }) => {
         </div>
         <div className="flex flex-col gap-10">
           {[imp, ...result].map((blog: Blog) => (
-            <div key={blog.title} className="">
-              <Link
-                href={`/blog/${blog.slug.current}`}
-                className="w-full flex flex-col lg:flex-row gap-4 lg:gap-8"
-              >
-                <div className="w-full lg:w-[20em] h-[14em] sm:h-[16em] md:h-[28em] lg:h-[14em] xl:h-[12em]">
-                  <img
-                    src={getImgUrl(blog.thumbnail)
-                      .width(400)
-                      .height(300)
-                      .auto("format")
-                      .url()}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 flex flex-col md:flex-col gap-4 xl:pr-24">
-                  <h2 className="font-bold md:text-sm lg:text-xl">
-                    {blog.title}
-                  </h2>
-                  <p className="text-[12px] lg:text-sm line-clamp-3">
-                    {blog.description}
-                  </p>
-                  <div className="flex text-[12px] justify-between md:justify-start md:gap-8">
-                    <p className="bg-neutral-content rounded-md text-neutral px-2 font-semibold">
-                      {blog.categories.title}
-                    </p>
-                    <p>{new Date(blog._createdAt).toDateString()}</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            <Link
+              href={`/blog/${blog.slug.current}`}
+              key={blog.title}
+              className=""
+            >
+              <HoverCard
+                cardDetails={blog}
+                containerClass="w-full flex flex-col lg:flex-row gap-4 lg:gap-8"
+                imgContainerClass="w-full lg:w-[20em] h-[14em] sm:h-[16em] md:h-[26em] lg:h-[14em] xl:h-[12em]"
+                imgDimenion={{ width: 400, height: 300 }}
+                textContainerClass="flex-1 flex flex-col md:flex-col gap-4 xl:pr-24"
+                headerClass="font-bold md:text-sm lg:text-xl"
+                descClass="text-[12px] lg:text-sm line-clamp-3"
+                showTagandDate={true}
+              />
+            </Link>
           ))}
         </div>
       </div>

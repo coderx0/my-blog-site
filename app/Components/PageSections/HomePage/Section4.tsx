@@ -45,7 +45,7 @@ const TechBlogs = async () => {
               <HoverCard
                 cardDetails={blog}
                 containerClass=""
-                imgContainerClass="`w-full h-[14em] sm:h-[16em] md:h-[28em] lg:h-[10em] xl:h-[18em]"
+                imgContainerClass="`w-full h-[14em] sm:h-[16em] md:h-[26em] lg:h-[10em] xl:h-[18em]"
                 textContainerClass="flex flex-col gap-2 h-full mt-4"
                 imgDimenion={{ width: 400, height: 400 }}
                 showDesc={false}
