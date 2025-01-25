@@ -40,7 +40,6 @@ const GameBlogs = async () => {
           </div>
           <div className="flex flex-col lg:flex-row gap-8">
             {gameBlogs.map((blog: Blog) => (
-              // <Card2 blog={blog} key={blog.title} />
               <Link
                 href={`/blog/${blog.slug.current}`}
                 key={blog.title}
