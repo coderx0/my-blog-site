@@ -1,9 +1,9 @@
 import { Blog } from "@/types";
 import RightArrow from "@/Icons/rightArrow";
-import Card2 from "../../Card2";
 
 import { client } from "../../../../utils/sanity/client";
 import Link from "next/link";
+import HoverCard from "../../HoverCard";
 
 const QUERY = `*[_type == "post" && categories->title == $categoryTitle] | order(_createdAt desc)[0...3]{
   title,
@@ -37,13 +37,23 @@ const TechBlogs = async () => {
         </div>
         <div className="flex flex-col lg:flex-row gap-8 md:gap-8">
           {result.map((blog: Blog) => (
-            <Card2
-              blog={blog}
+            <Link
+              href={`/blog/${blog.slug.current}`}
               key={blog.title}
-              imgWidth={400}
-              imgHeight={400}
-              customImgContainerClass="xl:h-[18em]"
-            />
+              className="lg:w-[40em]"
+            >
+              <HoverCard
+                cardDetails={blog}
+                containerClass=""
+                imgContainerClass="`w-full h-[14em] sm:h-[16em] md:h-[28em] lg:h-[10em] xl:h-[18em]"
+                textContainerClass="flex flex-col gap-2 h-full mt-4"
+                imgDimenion={{ width: 400, height: 400 }}
+                showDesc={false}
+                showDate={true}
+                headerClass="font-bold md:text-[18px] lg:text-[14px] xl:text-[18px] line-clamp-2"
+                descClass="text-[14px] xl:text-[16px] mt-2 text-base-content/80 line-clamp-3"
+              />
+            </Link>
           ))}
         </div>
       </div>

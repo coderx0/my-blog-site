@@ -14,6 +14,8 @@ interface HoverCardProps {
   };
   headerClass: string;
   descClass: string;
+  showDesc?: boolean;
+  showDate?: boolean;
 }
 const HoverCard = ({
   cardDetails,
@@ -23,6 +25,8 @@ const HoverCard = ({
   imgDimenion,
   headerClass,
   descClass,
+  showDesc = true,
+  showDate = false,
 }: HoverCardProps) => {
   return (
     <div className="group overflow-hidden">
@@ -40,6 +44,11 @@ const HoverCard = ({
         </div>
         <div className={textContainerClass}>
           <h3 className={`${headerClass} relative`}>
+            {showDate && (
+              <p className="text-[12px] font-normal mb-4">
+                {new Date(cardDetails._createdAt).toDateString()}
+              </p>
+            )}
             <span className="group-hover:text-info transition-[color] duration-200">
               {cardDetails.title}
             </span>
@@ -47,9 +56,11 @@ const HoverCard = ({
               {cardDetails.title}
             </div> */}
           </h3>
-          <p className={`${descClass} ${BodyFont.className}`}>
-            {cardDetails.description}
-          </p>
+          {showDesc && (
+            <p className={`${descClass} ${BodyFont.className}`}>
+              {cardDetails.description}
+            </p>
+          )}
         </div>
       </div>
     </div>
