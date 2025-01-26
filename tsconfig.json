@@ -27,10 +27,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/blog/[slug]/page.jsx",
-    "app/category/[slug]/page.jsx",
-    "app/Components/ImageComponent/Image.jsx",
-    "app/Components/PageSections/MoreLikeThis/index.jsx",
+    "app/blog/[slug]/page.tsx",
+    "app/category/[slug]/page.tsx",
+    "app/Components/ImageComponent/Image.tsx",
+    "app/Components/PageSections/MoreLikeThis/index.tsx",
     "app/Components/TextComponents/index.jsx"
   ],
   "exclude": ["node_modules"]

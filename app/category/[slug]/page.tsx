@@ -4,17 +4,25 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogsByCategory } from "../../../Queries/queries";
 import HoverCard from "@/app/Components/HoverCard";
+import { Blog } from "@/types";
 const validCategories = ["Tech", "Games", "Personal Development"];
 
-const BlogDetails = async ({ params }) => {
+const BlogDetails = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const { slug } = await params;
   const formattedSlug = slug.replace("%20", " ");
+
   if (!validCategories.includes(formattedSlug)) {
     return notFound();
   }
+
   const result = await client.fetch(BlogsByCategory, {
     categoryTitle: decodeURI(formattedSlug),
   });
+
   return (
     <div className="mt-10 flex flex-col lg:flex-row justify-between ">
       <div className="w-full lg:w-[75%]">
@@ -22,7 +30,7 @@ const BlogDetails = async ({ params }) => {
           <h2 className="text-2xl font-bold">Blogs in {decodeURI(slug)}</h2>
         </div>
         <div className="flex flex-col gap-8">
-          {result.map((blog) => (
+          {result.map((blog: Blog) => (
             <Link
               href={`/blog/${blog.slug.current}`}
               key={blog.title}

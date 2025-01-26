@@ -1,22 +1,15 @@
-import ImageComponent from "../../ImageComponent/Image";
 import { client } from "@/utils/sanity/client";
 import Link from "next/link";
 import HoverCard from "../../HoverCard";
+import { Blog } from "@/types";
+import { MoreLikeThisBlog } from "@/Queries/queries";
 
-const QUERY = `*[_type == "post" && categories._ref == $categoryId && slug.current != $slug] | order(_createdAt desc)[0...3]{
-    title,
-    slug,
-    thumbnail,
-    description,
-    _createdAt
-  }`;
-
-// type Props = {
-//   category: string,
-//   slug: string,
-// };
-const MoreLikeThisSection = async (props) => {
-  const results = await client.fetch(QUERY, {
+type Props = {
+  category: string;
+  slug: string;
+};
+const MoreLikeThisSection = async (props: Props) => {
+  const results = await client.fetch(MoreLikeThisBlog, {
     categoryId: props.category,
     slug: props.slug,
   });
@@ -24,7 +17,7 @@ const MoreLikeThisSection = async (props) => {
   return (
     <div className="mt-6">
       <div className="flex flex-col md:flex-row gap-8">
-        {results.map((blog) => (
+        {results.map((blog: Blog) => (
           <Link
             href={`/blog/${blog.slug.current}`}
             key={blog.title}
@@ -44,22 +37,6 @@ const MoreLikeThisSection = async (props) => {
           </Link>
         ))}
       </div>
-      {/* <div key={result.slug.current} className="flex-1">
-            <Link href={`/blog/${result.slug.current}`}>
-              <div className="">
-                <ImageComponent
-                  imgSrc={result.thumbnail}
-                  height={220}
-                  width={370}
-                />
-              </div>
-            </Link>
-            <Link href={`/blog/${result.slug.current}`}>
-              <div className="mt-4 hover:text-base-content/75 transition duration-200">
-                <p>{result.title}</p>
-              </div>
-            </Link>
-          </div> */}
     </div>
   );
 };
