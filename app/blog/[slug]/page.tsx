@@ -4,7 +4,7 @@ import { BodyFont } from "@/fonts";
 import MoreLikeThisSection from "@/app/Components/PageSections/MoreLikeThis";
 import { notFound } from "next/navigation";
 import { getImgUrl } from "@/utils/sanity/getImgUrl";
-import PTrenderer from "@/utils/PortableText/PTComponents";
+import PTrenderer from "../../Components/PortableText/PTComponents";
 import { BlogBySlug } from "@/Queries/queries";
 
 export const dynamicParams = true;

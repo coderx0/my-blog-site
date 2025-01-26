@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getImgUrl } from "../sanity/getImgUrl";
+import { getImgUrl } from "@/utils/sanity/getImgUrl";
 import {
   PortableText,
   PortableTextMarkComponentProps,
