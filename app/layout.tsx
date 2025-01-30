@@ -3,6 +3,7 @@ import { HeaderFont } from "@/fonts";
 import "./globals.css";
 import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import MobileNav from "./Components/MobileNav";
 export const metadata: Metadata = {
   title: "Your Go-To Hub for Tech, Games, and Personal Growth | Debnews",
   description:
@@ -39,6 +40,9 @@ export default function RootLayout({
                 </Link>
               </li>
             </ul>
+            <div className="md:hidden">
+              <MobileNav />
+            </div>
           </div>
         </nav>
         <main className="px-4 mt-32  sm:px-12 xl:px-0 mx-auto max-w-[1400px]">

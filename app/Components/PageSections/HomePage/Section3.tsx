@@ -30,9 +30,9 @@ const Section3 = ({ result, imp }: { result: Blog[]; imp: Blog }) => {
           ))}
         </div>
       </div>
-      <div className="w-full h-[200px] lg:h-[620px] lg:w-[22%] bg-red-100 mb-10">
+      {/* <div className="w-full h-[200px] lg:h-[620px] lg:w-[22%] bg-red-100 mb-10">
         <h2>AD</h2>
-      </div>
+      </div> */}
     </div>
   );
 };

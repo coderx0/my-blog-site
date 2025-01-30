@@ -50,9 +50,9 @@ const BlogDetails = async ({
           ))}
         </div>
       </div>
-      <div className="w-full h-[200px] lg:h-[620px] lg:w-[20%] bg-red-100 mt-10">
+      {/* <div className="w-full h-[200px] lg:h-[620px] lg:w-[20%] bg-red-100 mt-10">
         <h2>AD</h2>
-      </div>
+      </div> */}
     </div>
   );
 };

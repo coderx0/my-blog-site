@@ -64,7 +64,7 @@ const BlogDetails = async ({
   return (
     <div>
       <div className="flex flex-col lg:flex-row lg:gap-8 mt-12">
-        <div className="flex-1">
+        <div className=" lg:w-[70%]">
           <h2 className="text-2xl font-bold">{result.title}</h2>
           <div className="my-12 md:px-12">
             <ImageComponent
@@ -80,7 +80,7 @@ const BlogDetails = async ({
             <PTrenderer content={result.content} />
           </div>
         </div>
-        <div className="w-full lg:w-[30%] bg-blue-100 mt-20">Hello wolrd</div>
+        {/* <div className="w-full lg:w-[30%] bg-red-200 mt-20"></div> */}
       </div>
       <div className="mt-12 lg:mt-24">
         <h2 className="text-xl font-bold">More Like This</h2>
