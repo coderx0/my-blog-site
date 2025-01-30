@@ -1,11 +1,9 @@
 "use client";
-import { useClickOutside } from "@mantine/hooks";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const MobileNav = () => {
   const [opened, setOpened] = useState(false);
-  const mainNavContentRef = useClickOutside(() => setOpened(false));
 
   useEffect(() => {
     if (opened) {
@@ -41,8 +39,15 @@ const MobileNav = () => {
         </svg>
       </div>
       {opened && (
-        <div className="fixed inset-0 bg-base-300/80 backdrop-blur-sm flex justify-end">
-          <div className="bg-base-300  w-[50%] h-full" ref={mainNavContentRef}>
+        <div
+          id="overlay-nav"
+          className="fixed inset-0 bg-base-300/80 backdrop-blur-sm flex justify-end"
+          onClick={(e) => {
+            if ((e.target as HTMLElement).id === "overlay-nav")
+              setOpened(false);
+          }}
+        >
+          <div className="bg-base-300  w-[50%] h-full">
             <ul className="pt-12 p-4 flex flex-col gap-8">
               <li>
                 <Link href="/" onClick={() => setOpened(false)}>

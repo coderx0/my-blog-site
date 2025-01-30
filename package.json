@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/hooks": "^7.16.2",
     "@portabletext/react": "^3.2.0",
     "@sanity/client": "^6.25.0",
     "@sanity/image-url": "^1.1.0",
